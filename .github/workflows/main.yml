@@ -1,13 +1,38 @@
+name: "Deploy Acabot Modules"
+
 on:
   workflow_dispatch:
     inputs:
       module:
         description: "Select the module to deploy"
         required: true
-        # default: "Base AMI"
         type: choice
         options:
           - acabot infra
-          - acabot ami 
+          - acabot ami
           - acabot ec2
-          
+
+jobs:
+  deploy-infra:
+    if: ${{ github.event.inputs.module == 'acabot infra' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Acabot Infra
+        run: |
+          echo "Deploying acabot infra module..."
+
+  deploy-ami:
+    if: ${{ github.event.inputs.module == 'acabot ami' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Acabot AMI
+        run: |
+          echo "Deploying acabot AMI module..."
+
+  deploy-ec2:
+    if: ${{ github.event.inputs.module == 'acabot ec2' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Acabot EC2
+        run: |
+          echo "Deploying acabot EC2 module..."
