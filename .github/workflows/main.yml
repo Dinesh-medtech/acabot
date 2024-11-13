@@ -18,21 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Acabot Infra
-        run: |
-          echo "Deploying acabot infra module..."
+        run:  echo "Deploying acabot infra module..."
 
   deploy-ami:
     if: ${{ github.event.inputs.module == 'acabot ami' }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Acabot AMI
-        run: |
-          echo "Deploying acabot AMI module..."
+        run: echo "Deploying acabot AMI module..."
 
   deploy-ec2:
     if: ${{ github.event.inputs.module == 'acabot ec2' }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Acabot EC2
-        run: |
-          echo "Deploying acabot EC2 module..."
+        run: echo "Deploying acabot EC2 module..."
