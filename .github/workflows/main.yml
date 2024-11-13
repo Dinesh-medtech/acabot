@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+    inputs:
+      module:
+        description: "Select the module to deploy"
+        required: true
+        # default: "Base AMI"
+        type: choice
+        options:
+          - acabot infra
+          - acabot ami 
+          - acabot ec2
+          
